@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,31 +8,36 @@
     <title>Cute Picture</title>
 </head>
 <body>
-    <!-- Next and Previos Click -->
-    <a type="button" onclick="Switch(1)";>Previous</a>
-    <a type="button" onclick="Switch(-1)";>Next</a>
+    <img id="img1" src="img1.png" style="" width="300" height="300" >
+	<img id="img2" src="img2.png" width="300" height="300" hidden>
+	<img id="img3" src="img3.png" width="300" height="300" hidden>
+	<img id="img4" src="img4.png" width="300" height="300" hidden>
+	<img id="img5" src="img5.png" width="300" height="300" hidden>
 
     <script>
-        //Create a list to store the images
-        var PicL = ["img1.png","img2.png", "img3.png", "img4.png", "img5.png"]
-        //Function to switch the images
-        //Switch the image but keep the onclick function
+    let i = 0
 
-        function Switch(i){
-            i = i + 1;
-            if (i > 4){
-                i = 0;
-            }
-            if (i < 0){
-                i = 4;
-            }
-            Display(i);
-    };
-        //Function to display the images
-        function Display(i){
-            document.write("<img src=" + PicL[i] + " width='300' height='300' " + ">");
-        };
-        Display(0);
+    function next(){
+	prev = ne = document.getElementById(`img${i+1}`);
+	i = (i + 1) % 5;
+	ne = document.getElementById(`img${i+1}`);
+	
+	prev.setAttribute("hidden", "hidden");
+	ne.removeAttribute("hidden");
+    }
+
+    function previous(){
+	prev = ne = document.getElementById(`img${i+1}`);
+	i = (i - 1) + ((i <= 0) * 5);
+	ne = document.getElementById(`img${i+1}`);
+	prev.setAttribute("hidden", "hidden");
+	ne.removeAttribute("hidden");
+}
     </script>
+
+
+<button type="button" onclick="previous()" style="float: left;">Previous</button>
+<button type="button" onclick="next()" style="float: right;">Next</button>
+
 </body>
 </html>

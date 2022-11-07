@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color change</title>
-</head>
-<body>
-    <h1>Color change</h1>
-    <p>Click the button to change the color of the text.</p>
-    <button onclick="myFunction('r')">Red</button>
-    <button onclick="myFunction('b')">Blue</button>
-    <button onclick="myFunction('g')">Green</button>
-
-    <h3><p id="demo" style="border:3px";>Game</p></h3>
-    <script>
-        function myFunction(value) {
-            if(value == "r") {
-                document.getElementById("demo").style.color = "red";
-            } else if(value == "b") {
-                document.getElementById("demo").style.color = "blue";
-            } else if(value == "g") {
-                document.getElementById("demo").style.color = "green";
+	<head>
+		<meta charset="UTF-8">
+		<title>Change color</title>
+        <style>
+            p.boxer {border-style: solid;}
+        </style>
+	</head>
+	<body>
+        <form>
+            <label for="border">Change Border Color: </label>
+            <input type="text" id="border">
+            <label for="background">Change Background Color: </label>
+            <input type="text" id="background">
+            <label for="width">Width: </label>
+            <input type="text" id="width">
+            <input type="button" onclick="ColorC()" value="Change"/>
+        </form>
+            <p id = "box" class = "boxer"> 
+                This is a paragraph. You can change the background color, border color, and the width of the border.
+            </p>
+        <script>
+            function ColorC(){
+                document.getElementById("box").style.backgroundColor = document.getElementById("background").value;
+                document.getElementById("box").style.borderColor = document.getElementById("border").value;
+                document.getElementById("box").style.borderWidth = document.getElementById("width").value + "px";
             }
-        }
-    </script>
-    <div id="Container">
-
-    </div>
-</body>
-</html>
+        </script>
