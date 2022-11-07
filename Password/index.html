@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+</head>
+<body>
+    
+    <script>
+        //Create a password enter form
+        var password = prompt("Enter your password");
+        //Create a function to validate the password
+        function validatePassword(password){
+            //Check if the password is more than 8 characters
+            var check = prompt("Enter your password again: ");
+            if (password != check){
+                alert("Password is invalid");
+            }
+            if(password.length < 8){
+                alert("Password must be at least 8 characters");
+                return false;
+            }
+            //If all the above conditions are met, return true
+            return true;
+        };
+        //Call the function and pass the password entered by the user
+        while (!validatePassword(password)){
+            password = prompt("Enter your password");
+        };
+        alert("Password is valid");
+        
+
+
+    </script>
+</body>
+</html>

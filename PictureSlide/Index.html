@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Picture</title>
+</head>
+<body>
+    <!-- Next and Previos Click -->
+    <a type="button" onclick="Switch(1)";>Previous</a>
+    <a type="button" onclick="Switch(-1)";>Next</a>
+
+    <script>
+        //Create a list to store the images
+        var PicL = ["img1.png","img2.png", "img3.png", "img4.png", "img5.png"]
+        //Function to switch the images
+        //Switch the image but keep the onclick function
+
+        function Switch(i){
+            i = i + 1;
+            if (i > 4){
+                i = 0;
+            }
+            if (i < 0){
+                i = 4;
+            }
+            Display(i);
+    };
+        //Function to display the images
+        function Display(i){
+            document.write("<img src=" + PicL[i] + " width='300' height='300' " + ">");
+        };
+        Display(0);
+    </script>
+</body>
+</html>
